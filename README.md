@@ -12,17 +12,29 @@ The mat had a female DE-15 connector (i.e. a VGA connector), so I bought a break
 ## DEFAULT:
 The following pins were always connected, *but only in one direction*.
 Suggests that there is a diode - perhaps a light-emitting diode (LED) - between them...
- * A2->10, 
- * A5->A1, 
- * A2->3, 
- * A5->A3
+* A0->3
+* A3->12
+* A3->A1
+* A0->A4
 
 ## DIRECTIONAL PADS:
 When a directional pad is stepped on, the following pins become connected *in both directions*
-We can see some common pins: 2, 7, 8 - these could be ground
  * Top Right: 2 <-> 6
  * Top : 4 <-> 7
- * Top Left: 2 <-> A0
- * Left: 8 <-> 11
- * Right: 7 <-> A4
+ * Top Left: 2 <-> A2
+ * Left: 8 <-> 10
+ * Right: 7 <-> 11
  * Down 5 <-> 8
+
+Note that there are several common pins that are shared (this may not initially appear obvious, since the code output will always list lower-numbered pins first) - 2, 7, 8 are shared by the buttons inputs, while A0 are A3 are shared by the high side of the LEDs. With some rearrangement, we can deduce the following:
+
+2, 7, 8 = GND
+6 = Top-right
+4 = Top
+A2 = Top-left
+10 = Left
+11 = Right
+5 = Down
+
+A0, A3 = +V
+3, 12, A1, A4 = pull-down to GND to light LEDs
