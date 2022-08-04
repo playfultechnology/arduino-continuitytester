@@ -28,7 +28,8 @@ When a directional pad is stepped on, the following pins become connected *in bo
 
 Note that there are several common pins that are shared (this may not initially appear obvious, since the code output will always list lower-numbered pins first) - 2, 7, 8 are shared by the buttons inputs, while A0 are A3 are shared by the high side of the LEDs. With some rearrangement, we can deduce the following:
 
-2, 7, 8 = GND
+### Pad Inputs
+2, 7, 8 = Common (GND)
 6 = Top-right
 4 = Top
 A2 = Top-left
@@ -36,5 +37,10 @@ A2 = Top-left
 11 = Right
 5 = Down
 
-A0, A3 = +V
-3, 12, A1, A4 = pull-down to GND to light LEDs
+### LEDs
+A0, A3 = Common (+3.3V, +5V? Not sure!)
+Then pull following pins down to GND to illuminate LEDs on each pad
+A4 = Up
+3 = Right
+12 = Left
+A1 = Down
